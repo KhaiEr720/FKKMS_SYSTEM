@@ -69,6 +69,9 @@ Route::post('/payments/approve','App\Http\Controllers\PaymentController@approve'
 
 Route::post('/payments/reject','App\Http\Controllers\PaymentController@reject') -> name('reject_payment');
 
+Route::get('/payments', 'App\Http\Controllers\PaymentController@index')->name('payments.index');
+
+
 //Payment Gateway
 Route::get('toyyibpay/{billName}/{description}/{amount}/{refNo}/{name}/{email}/{phone}/{expires}','App\Http\Controllers\PaymentController@createBill') -> name('toyyibpay-create');
 Route::get('toyyibpay-status','App\Http\Controllers\PaymentController@paymentStatus') -> name('toyyibpay-status');
