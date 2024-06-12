@@ -19,9 +19,10 @@
         @endif
         <div class="container-fluid d-flex justify-content-evenly" style="padding-top:20px;">
 
+            {{-- add pop up message --}}
             @if ($payment !== null || $application->status != 'Approved')
-                <a href="{{ route('payments.create') }}"
-                    class="w-full max-w-sm h-96 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 space-y-4 disabled-link ">
+                <a href="#" onclick="showPopup()" 
+                    class="w-full max-w-sm h-96 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 space-y-4">
                     <div class="flex flex-col items-center justify-center h-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
@@ -52,7 +53,7 @@
                 class="w-full max-w-sm h-96 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 space-y-4  @if ($payment === null) disabled-link @endif">
 
                 <div class="flex flex-col items-center justify-center h-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24   " fill="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                         class="bi bi-calendar2-plus" viewBox="0 0 16 16">
                         <path
                             d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
@@ -116,3 +117,9 @@
     </div>
     @endif
 </x-app-layout>
+
+<script>
+    function showPopup() {
+        alert("Your application needs to be approved first.");
+    }
+</script>

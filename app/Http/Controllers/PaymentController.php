@@ -12,58 +12,31 @@ use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
 {
-//     /**
-//      * Display a listing of the resource.
-//      */
-//     public function index()
-//     {
-//         $type = request('type');
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $type = request('type');
 
-//         $applications = Application::all();
-//         $users = User::all();
-//         $payments = Payment::all();
-//         $uid = Auth::user()->User_ID;
+        $applications = Application::all();
+        $users = User::all();
+        $payments = Payment::all();
+        $uid = Auth::user()->User_ID;
 
-//         $application = $applications->where("User_ID", $uid)->first();
-//         $payment = $payments->where("User_ID", $uid)->first();
-//         $role = Auth::user()->User_type;
+        $application = $applications->where("User_ID", $uid)->first();
+        $payment = $payments->where("User_ID", $uid)->first();
+        $role = Auth::user()->User_type;
 
-//         if ($role == 'FK Student' || $role == 'Vendor') {
-//             return view('manage_payment.mainPayment', compact('users', 'application', 'payment', 'role'));
+        if ($role == 'FK Student' || $role == 'Vendor') {
+            return view('manage_payment.mainPayment', compact('users', 'application', 'payment', 'role'));
 
-//         }elseif ($role == 'FK Bursary') {
-//             return view('manage_payment.paymentList', compact('users', 'applications', 'payments', 'type'));
-//         }
-//     }
-
-public function index()
-{
-    $type = request('type');
-    $sortBy = request('sort');
-
-    $applications = Application::all();
-    $users = User::all();
-    $payments = Payment::all();
-    $uid = Auth::user()->User_ID;
-
-    $application = $applications->where("User_ID", $uid)->first();
-    $payment = $payments->where("User_ID", $uid)->first();
-    $role = Auth::user()->User_type;
-
-    // Check if sorting by status is requested
-    if ($sortBy === 'successful') {
-        $payments = $payments->where('remark', 'SUCCESSFUL');
-    } elseif ($sortBy === 'unsuccessful') {
-        $payments = $payments->where('remark', 'UNSUCESSFUL');
+        }elseif ($role == 'FK Bursary') {
+            return view('manage_payment.paymentList', compact('users', 'applications', 'payments', 'type'));
+        }
     }
 
-    if ($role === 'FK Student' || $role === 'Vendor') {
-        return view('manage_payment.mainPayment', compact('users', 'application', 'payment', 'role'));
-    } elseif ($role === 'FK Bursary') {
-        return view('manage_payment.paymentList', compact('users', 'applications', 'payments', 'type'));
-    }
-}
-
+    
 
     /**
      * Show the form for creating a new resource.
