@@ -43,124 +43,128 @@
 
 
 
-            
-                @if ($role == 'FK Student')
-                    <div>
-                        <x-label for="name" value="{{ __('Name') }}" />
-                        <x-input id="name" class="block mt-1 w-full" type="text" name="name"
-                            value="{{ $users->name }}" required autofocus autocomplete="name" disabled/>
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="stdID" value="{{ __('Student ID') }}" />
-                        <x-input id="stdID" class="block mt-1 w-full" type="text" name="stdID"
-                            value="{{ $users->MatricID }}" required autofocus autocomplete="stdID" disabled/>
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="product" value="{{ __('Product Name') }}" />
-                        <x-input id="product" class="block mt-1 w-full" type="text" name="product"
-                            value="{{ $users->Product_name }}" required autofocus autocomplete="product" disabled/>
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="price" value="{{ __('Price') }}" />
-                        <x-input id="price" class="block mt-1 w-full" type="text" name="price"
-                            value="{{ number_format((float) $users->Price, 2) }}" step=".01" min="1"
-                            required autofocus autocomplete="product" disabled />
-                    </div>
-                    <div>
-                        <x-input id="role" class="block mt-1 w-full" type="hidden" name="role"
-                            value="FK Student" hidden />
-                        <x-input id="uid" class="block mt-1 w-full" type="hidden" name="uid"
-                            value="{{ $users->User_ID }}" hidden />
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="email" value="{{ __('Email') }}" />
-                        <x-input id="email" class="block mt-1 w-full" type="email" name="email"
-                            value="{{ Auth::user()->email }}" autofocus disabled/>
-                    </div>
 
-                    </br>
-
-                    <div>
-                        <x-label for="phone" value="{{ __('Phone Number') }}" />
-                        <x-input id="phone" class="block mt-1 w-full" type="text" name="phone"
-                            value="{{ Auth::user()->phone }}" autofocus disabled/>
-                    </div>
-                @elseif($role == 'Vendor')
-                    <div>
-                        <x-label for="name" value="{{ __('Name') }}" />
-                        <x-input id="name" class="block mt-1 w-full" type="text" name="name"
-                            value="{{ Auth::user()->name }}" required autofocus autocomplete="name" disabled />
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="company" value="{{ __('Company Name') }}" />
-                        <x-input id="company" class="block mt-1 w-full" type="text" name="company"
-                            value="{{ Auth::user()->company }}" required autofocus autocomplete="company" disabled/>
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="product" value="{{ __('Product Name') }}" />
-                        <x-input id="product" class="block mt-1 w-full" type="text" name="product"
-                            value="{{ $users->Product_name }}" required autofocus autocomplete="product" disabled />
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="price" value="{{ __('Price') }}" />
-                        <x-input id="price" class="block mt-1 w-full" type="text" name="price"
-                            value="{{ number_format((float) $users->Price, 2) }}" required autofocus
-                            autocomplete="product" disabled />
-                    </div>
-                    <div>
-                        <x-input id="role" class="block mt-1 w-full" type="hidden" name="role"
-                            value="Vendor" hidden />
-                        <x-input id="uid" class="block mt-1 w-full" type="hidden" name="uid"
-                            value="{{ $users->User_ID }}" hidden />
-                    </div>
-                    </br>
-                    <div>
-                        <x-label for="email" value="{{ __('Email') }}" />
-                        <x-input id="email" class="block mt-1 w-full" type="email" name="email"
-                            value="{{ Auth::user()->email }}" autofocus disabled/>
-                    </div>
-
-                    </br>
-
-                    <div>
-                        <x-label for="phone" value="{{ __('Phone Number') }}" />
-                        <x-input id="phone" class="block mt-1 w-full" type="text" name="phone"
-                            value="{{ Auth::user()->phone }}" autofocus disabled/>
-                    </div>
-                @endif
+            @if ($role == 'FK Student')
+                <div>
+                    <x-label for="name" value="{{ __('Name') }}" />
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $users->name }}" required
+                        autofocus autocomplete="name" disabled />
+                </div>
+                </br>
+                <div>
+                    <x-label for="stdID" value="{{ __('Student ID') }}" />
+                    <x-input id="stdID" class="block mt-1 w-full" type="text" name="stdID" value="{{ $users->MatricID }}"
+                        required autofocus autocomplete="stdID" disabled />
+                </div>
+                </br>
+                <div>
+                    <x-label for="product" value="{{ __('Product Name') }}" />
+                    <x-input id="product" class="block mt-1 w-full" type="text" name="product"
+                        value="{{ $users->Product_name }}" required autofocus autocomplete="product" disabled />
+                </div>
+                </br>
+                <div>
+                    <x-label for="price" value="{{ __('Price') }}" />
+                    <x-input id="price" class="block mt-1 w-full" type="text" name="price"
+                        value="{{ number_format((float) $users->Price, 2) }}" step=".01" min="1" required autofocus
+                        autocomplete="product" disabled />
+                </div>
+                <div>
+                    <x-input id="role" class="block mt-1 w-full" type="hidden" name="role" value="FK Student" hidden />
+                    <x-input id="uid" class="block mt-1 w-full" type="hidden" name="uid" value="{{ $users->User_ID }}"
+                        hidden />
+                </div>
+                </br>
+                <div>
+                    <x-label for="email" value="{{ __('Email') }}" />
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        value="{{ Auth::user()->email }}" autofocus disabled />
+                </div>
 
                 </br>
 
-                <div class="flex items-center justify-content-sm-evenly mt-4">
+                <div>
+                    <x-label for="phone" value="{{ __('Phone Number') }}" />
+                    <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" value="{{ Auth::user()->phone }}"
+                        autofocus disabled />
+                </div>
+            @elseif($role == 'Vendor')
+                <div>
+                    <x-label for="name" value="{{ __('Name') }}" />
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ Auth::user()->name }}"
+                        required autofocus autocomplete="name" disabled />
+                </div>
+                </br>
+                <div>
+                    <x-label for="company" value="{{ __('Company Name') }}" />
+                    <x-input id="company" class="block mt-1 w-full" type="text" name="company"
+                        value="{{ Auth::user()->company }}" required autofocus autocomplete="company" disabled />
+                </div>
+                </br>
+                <div>
+                    <x-label for="product" value="{{ __('Product Name') }}" />
+                    <x-input id="product" class="block mt-1 w-full" type="text" name="product"
+                        value="{{ $users->Product_name }}" required autofocus autocomplete="product" disabled />
+                </div>
+                </br>
+                <div>
+                    <x-label for="price" value="{{ __('Price') }}" />
+                    <x-input id="price" class="block mt-1 w-full" type="text" name="price"
+                        value="{{ number_format((float) $users->Price, 2) }}" required autofocus autocomplete="product"
+                        disabled />
+                </div>
+                <div>
+                    <x-input id="role" class="block mt-1 w-full" type="hidden" name="role" value="Vendor" hidden />
+                    <x-input id="uid" class="block mt-1 w-full" type="hidden" name="uid" value="{{ $users->User_ID }}"
+                        hidden />
+                </div>
+                </br>
+                <div>
+                    <x-label for="email" value="{{ __('Email') }}" />
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        value="{{ Auth::user()->email }}" autofocus disabled />
+                </div>
 
-                    <a href="{{ route('dashboard') }}"
-                        class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                        {{ __('BACK') }}</a>
+                </br>
 
+                <div>
+                    <x-label for="phone" value="{{ __('Phone Number') }}" />
+                    <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" value="{{ Auth::user()->phone }}"
+                        autofocus disabled />
+                </div>
+            @endif
 
+            </br>
+
+            <div class="flex items-center justify-content-sm-evenly mt-4">
+
+                <a href="{{ route('dashboard') }}"
+                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    {{ __('BACK') }}</a>
+
+                @if ($users->status === 'Approved')
+                    <button class="text-white bg-blue-500 opacity-50 cursor-not-allowed focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm h-10 px-5 py-2.5 
+                    focus:outline-none " disabled>EDIT</button>
+                @else
                     <a href="{{ route('applications.edit', $users->User_ID) }}"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm h-10 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                         {{ __('EDIT') }}</a>
-            <form x-data="{ tooltip: 'Delete' }" action="{{ route('applications.destroy', ['application' => $users->id], ['role' => $users->User_type]) }}"
-                method="POST" type="button" alt="DELETE" onSubmit="return confirm('Delete?')">
-                @csrf
-                @method('DELETE')
-                <x-button
-                    class="h-10 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
-                    {{ __('DELETE') }}
-                </x-button>
-            </form>
+                @endif
+
+                <form x-data="{ tooltip: 'Delete' }"
+                    action="{{ route('applications.destroy', ['application' => $users->id], ['role' => $users->User_type]) }}"
+                    method="POST" type="button" alt="DELETE" onSubmit="return confirm('Delete?')">
+                    @csrf
+                    @method('DELETE')
+                    <x-button
+                        class="h-10 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
+                        {{ __('DELETE') }}
+                    </x-button>
+                </form>
+            </div>
+
+
         </div>
-
-
-    </div>
     </div>
 
 </x-app-layout>
